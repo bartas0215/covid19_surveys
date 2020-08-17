@@ -3,7 +3,7 @@
     "path": "C:/Users/Bartek/Desktop/Ankieta COVID/covid_surveys/Load_script.R",
     "project_path": "Load_script.R",
     "type": "r_source",
-    "hash": "2280312489",
+    "hash": "898968903",
     "contents": "",
     "dirty": false,
     "created": 1596377782404.0,
@@ -11,15 +11,15 @@
     "relative_order": 1,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "19,35",
-        "scrollLine": "2"
+        "cursorPosition": "24,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1596379568,
+    "lastKnownWriteTime": 1597042773,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1596379568546,
+    "last_content_update": 1597042773699,
     "read_only": false,
     "read_only_alternatives": []
 }

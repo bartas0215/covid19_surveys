@@ -19,3 +19,6 @@ sur_1 <- sur_1 %>%
 
 # Count number of females and males
 count(sur_1,Proszę.wskazać.swoją.płeć)
+
+# COunt education 
+count(sur_1,Proszę.wskazać.swoje.wykształcenie)
