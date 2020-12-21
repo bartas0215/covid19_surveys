@@ -35,3 +35,11 @@ count(sur_1,Proszê.wskazaæ.wielkoœæ.miejscowoœci..w.której.spêdzi³.a.Pan.Pani.wi
 # Count number of children
 count(sur_1,Czy.posiada.Pan.i.dzieci..)
 
+glimpse(sur_1)
+
+sur_2 <- sur_1 %>%
+  group_by(Jak.czêsto.Pani.Pana.zdaniem.poni¿szy.objaw.wystêpuje.w.trakcie.zaka¿enia.COVID.19...biegunka.) %>%
+  summarise(Proszê.wskazaæ.swoj¹.p³eæ ) %>%
+  count(Proszê.wskazaæ.swoj¹.p³eæ )
+   
+
