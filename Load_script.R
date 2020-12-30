@@ -38,8 +38,18 @@ count(sur_1,Czy.posiada.Pan.i.dzieci..)
 glimpse(sur_1)
 
 sur_2 <- sur_1 %>%
-  group_by(Jak.czêsto.Pani.Pana.zdaniem.poni¿szy.objaw.wystêpuje.w.trakcie.zaka¿enia.COVID.19...biegunka.) %>%
+  group_by(c(Jak.czêsto.Pani.Pana.zdaniem.poni¿szy.objaw.wystêpuje.w.trakcie.zaka¿enia.COVID.19...biegunka.,Jak.ocenia.Pan.Pani.zasadnoœæ.wprowadzonych.ograniczeñ...w.godz..10.12.zakupy.wy³¹cznie.dla.seniorów.)) %>%
   summarise(Proszê.wskazaæ.swoj¹.p³eæ ) %>%
   count(Proszê.wskazaæ.swoj¹.p³eæ )
-   
 
+sur_2
+sur_3 <- sur_1 %>%
+  count()
+
+aggregate(Jak.czêsto.Pani.Pana.zdaniem.poni¿szy.objaw.wystêpuje.w.trakcie.zaka¿enia.COVID.19...biegunka.~Proszê.wskazaæ.swoj¹.p³eæ,FUN=length,data=sur_1)
+
+glimpse(sur_1)
+
+aggregate( Czy.w.zwi¹zku.z.epidemi¹.COVID.19.zmieni³y.siê.Pani.Pana.nawyki.higieniczne...unikanie.dotykania.twarzy.~Proszê.wskazaæ.swoj¹.p³eæ,FUN=length,data=sur_1)
+
+  
