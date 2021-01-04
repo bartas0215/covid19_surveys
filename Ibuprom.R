@@ -1,6 +1,7 @@
 # Load libraries
 library(tidyverse)
 library(easyPubMed)
+library(xlsx)
 
 #Retrieve data structure 
 glimpse(sur_1)
@@ -22,25 +23,39 @@ sur_ib <- sur_1 %>%
   group_by(Proszê.wskazaæ.swoj¹.p³eæ ) %>%
   summarise(Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby.. ) %>%
   count(Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby..  )
+sur_ib <- as_tibble(sur_ib)
 
 #Children
 sur_ib_1 <- sur_1 %>%
   group_by(Czy.posiada.Pan.i.dzieci..  ) %>%
   summarise(Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby.. ) %>%
   count(Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby.. )
+sur_ib_1 <- as_tibble(sur_ib_1)
 
 #Children and gender
 sur_ib_2 <- sur_1 %>%
   group_by(Czy.posiada.Pan.i.dzieci.., Proszê.wskazaæ.swoj¹.p³eæ  ) %>%
   summarise( Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby.. ) %>%
   count( Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby.. )
+sur_ib_2 <- as_tibble(sur_ib_2)
 
 #Education
 sur_ib_3 <- sur_1 %>%
   group_by(Proszê.wskazaæ.swoje.wykszta³cenie  ) %>%
   summarise( Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby.. ) %>%
   count( Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby.. )
+sur_ib_3 <- as_tibble(sur_ib_3)
 
+#City
+sur_ib_4 <- sur_1 %>%
+  group_by(Proszê.wskazaæ.wielkoœæ.miejscowoœci..w.której.spêdzi³.a.Pan.Pani.wiêkszoœæ.swojego.¿ycia  ) %>%
+  summarise(Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby.. ) %>%
+  count(Przyjmowanie.ibuprofenu.pogarsza.przebieg.choroby..  )
+sur_ib_4 <- as_tibble(sur_ib_4)
 
-
-
+#Save as excel file
+write.xlsx(sur_ib,"C:/Users/Bartek/Desktop/Ankieta COVID/Demografia_ankiety/Ibuprofen/gender.xlsx")
+write.xlsx(sur_ib_1,"C:/Users/Bartek/Desktop/Ankieta COVID/Demografia_ankiety/Ibuprofen/children.xlsx")
+write.xlsx(sur_ib_2,"C:/Users/Bartek/Desktop/Ankieta COVID/Demografia_ankiety/Ibuprofen/children_gender.xlsx")
+write.xlsx(sur_ib_3,"C:/Users/Bartek/Desktop/Ankieta COVID/Demografia_ankiety/Ibuprofen/education.xlsx")
+write.xlsx(sur_ib_4,"C:/Users/Bartek/Desktop/Ankieta COVID/Demografia_ankiety/Ibuprofen/city.xlsx")
