@@ -60,22 +60,22 @@ sur_4_1 <- sur_1 %>%
 sur_4_2 <- sur_4_1 %>%
   filter(Proszê.wskazaæ.swoje.wykszta³cenie == "w trakcie studiów wy¿szych (niemedycznych)" |Proszê.wskazaæ.swoje.wykszta³cenie == "w trakcie studiów wy¿szych (medycznych)")
 
-edu_1(x =sur_4_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/Precautions/education/precations.xlsx")
+edu_2(sur_4_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/Precautions/education/precations.xlsx")
 
 #### Gender
 
 sur_4_2 <- sur_1 %>%
   select( Proszê.wskazaæ.swoj¹.p³eæ ,myd³o.:jedzenie.czosnku.)
 
-edu_2(x =sur_4_2$Proszê.wskazaæ.swoj¹.p³eæ,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/Precautions/gender/precations.xlsx")
+edu_2(sur_4_2$Proszê.wskazaæ.swoj¹.p³eæ,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/Precautions/gender/precations.xlsx")
 
 ### Medical vs non-medical
-
-sur_4_1 <- sur_1 %>%
+    ###FIX###
+sur_med_1 <- sur_1 %>%
   select( Proszê.wskazaæ.swoje.wykszta³cenie,myd³o.:jedzenie.czosnku.)
 
-sur_4_2 <- sur_4_1 %>%
-  filter(Proszê.wskazaæ.swoje.wykszta³cenie == "wy¿sze (medyczne)" |Proszê.wskazaæ.swoje.wykszta³cenie == "wy¿sze (niemedyczne)")
+sur_med_3 <-  med_1()
+sur_med_3
 
-edu_2(x =sur_4_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/Precautions/medical/precautions.xlsx")
+edu_2(sur_med_3$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/Precautions/medical/precautions.xlsx")
 

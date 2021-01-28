@@ -66,11 +66,32 @@ edu_1(x =sur_3_2$Proszê.wskazaæ.swoj¹.p³eæ,"C:/Users/Bartek/Desktop/Ankieta COVI
 
 ### Medical vs non-medical
 
-sur_3_1 <- sur_1 %>%
+sur_med_1 <- sur_1 %>%
   select( Proszê.wskazaæ.swoje.wykszta³cenie,biegunka.:zapalenie.spojówek.)
 
-sur_3_2 <- sur_3_1 %>%
-  filter(Proszê.wskazaæ.swoje.wykszta³cenie == "wy¿sze (medyczne)" |Proszê.wskazaæ.swoje.wykszta³cenie == "wy¿sze (niemedyczne)")
+med_1 <- function() {
 
-edu_1(x =sur_3_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/symptomps_medical/symptomps.xlsx")
+sur_med_2 <- sur_med_1 %>%
+  filter(!str_detect( Proszê.wskazaæ.swoje.wykszta³cenie, fixed("w trakcie studiów wy¿szych (medycznych)"))) %>%
+  filter(!str_detect( Proszê.wskazaæ.swoje.wykszta³cenie, fixed("w trakcie studiów wy¿szych (niemedycznych)")))
+
+sur_med_2 <- sur_med_2 %>%
+  mutate(Proszê.wskazaæ.swoje.wykszta³cenie = str_replace_all(Proszê.wskazaæ.swoje.wykszta³cenie, fixed("œrednie (medyczne)"), replacement = "Wyksztacenie medyczne")) %>%
+  mutate(Proszê.wskazaæ.swoje.wykszta³cenie = str_replace_all(Proszê.wskazaæ.swoje.wykszta³cenie, fixed("wy¿sze (medyczne)"), replacement = "Wyksztacenie medyczne")) %>%
+  mutate(Proszê.wskazaæ.swoje.wykszta³cenie = str_replace_all(Proszê.wskazaæ.swoje.wykszta³cenie,fixed("wy¿sze (niemedyczne)") , replacement = "Wyksztacenie niemedyczne")) %>%
+  mutate(Proszê.wskazaæ.swoje.wykszta³cenie = str_replace_all(Proszê.wskazaæ.swoje.wykszta³cenie,fixed("wy¿sze (niemedyczne)") , replacement = "Wyksztacenie niemedyczne")) %>%
+  mutate(Proszê.wskazaæ.swoje.wykszta³cenie = str_replace_all(Proszê.wskazaæ.swoje.wykszta³cenie,fixed("œrednie (niemedyczne)") , replacement = "Wyksztacenie niemedyczne")) %>%
+  mutate(Proszê.wskazaæ.swoje.wykszta³cenie = str_replace_all(Proszê.wskazaæ.swoje.wykszta³cenie,fixed("podstawowe") , replacement = "Wyksztacenie niemedyczne")) %>%
+  mutate(Proszê.wskazaæ.swoje.wykszta³cenie = str_replace_all(Proszê.wskazaæ.swoje.wykszta³cenie,fixed("zawodowe") , replacement = "Wyksztacenie niemedyczne"))
+
+  return(sur_med_2)
+}
+
+sur_med_2 <-  med_1()
+sur_med_2
+
+edu_1(sur_med_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/symptomps_medical/symptomps.xlsx")
+
+
+
 
