@@ -87,11 +87,9 @@ sur_med_2 <- sur_med_2 %>%
   return(sur_med_2)
 }
 
-sur_med_2 <-  med_1()
-sur_med_2
+sur_3_2 <-  med_1()
+sur_3_2
 
-edu_1(sur_med_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/symptomps_medical/symptomps.xlsx")
-
-
+edu_1(x = sur_3_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/symptomps_medical/symptomps.xlsx")
 
 

@@ -50,14 +50,13 @@ edu_3(x =sur_3_2$Proszê.wskazaæ.swoj¹.p³eæ,"C:/Users/Bartek/Desktop/Ankieta COVI
 
 ### Medical vs non-medical
 
-        ###FIX###
 sur_med_1 <- sur_1 %>%
   select( Proszê.wskazaæ.swoje.wykszta³cenie,Terapia.COVID.19.polega.na.leczeniu.objawów.tej.choroby..np..wspomaganie.oddychania..leczenie.przeciwgor¹czkowe...:Przyjmowanie.witaminy.C.w.du¿ych.dawkach.poprawia.przebieg.choroby..)
 
-sur_med_2 <-  med_1()
-sur_med_2
+sur_3_2 <-  med_1()
+sur_3_2
 
-edu_3(sur_med_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/symptomps_medical/symptomps.xlsx")
+edu_3(sur_3_2$Proszê.wskazaæ.swoje.wykszta³cenie,"C:/Users/Bartek/Desktop/Ankieta COVID/new_dem/symptomps_medical/symptomps.xlsx")
 
 
 
